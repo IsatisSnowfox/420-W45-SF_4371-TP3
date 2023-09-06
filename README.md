@@ -1,4 +1,5 @@
 # Travail Pratique 3 - Travail sur serveur Web
+**Lien du repo github** : https://github.com/IsatisSnowfox/420-W45-SF_4371-TP3
 ## Description du projet
 Travail pratique consistant à mettre en place deux serveurs web Apache, chacun aillant leur propre base de donnée et serveur php.
 
@@ -27,4 +28,4 @@ Toutes les commandes ```docker compose``` doivent être lancées dans le dossier
 
  La commande sert à arrêter et supprimer les conteneurs lancés avec docker compose.
  
- Si pour une raison quelconque certains conteneurs n'ont pas été supprimés, vous pouvez utiliser la commande ```docker compose rm```s
+ Si pour une raison quelconque certains conteneurs n'ont pas été supprimés, vous pouvez utiliser la commande ```docker compose rm```
