@@ -29,3 +29,5 @@ Toutes les commandes ```docker compose``` doivent être lancées dans le dossier
  La commande sert à arrêter et supprimer les conteneurs lancés avec docker compose.
  
  Si pour une raison quelconque certains conteneurs n'ont pas été supprimés, vous pouvez utiliser la commande ```docker compose rm```
+
+ ![Preuve image](preuve_image.png)
