@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+  proxy:
+    image: nginx:alpine
+    ports:
+      - '80:80'
+    networks:
+      - frontend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+  serveur1:
+    build: './serveur/'
+    depends_on:
+      - php1
+      - mariadb1
+    networks:
+      - frontend
+      - backend1
+    volumes:
+      - ./serveur/html:/usr/local/apache2/htdocs/
+  serveur2:
+      build: './serveur2/'
+      depends_on:
+        - php2
+        - mariadb2
+      networks:
+        - frontend
+        - backend2
+      volumes:
+        - ./serveur2/html:/usr/local/apache2/htdocs/
+  php1:
+    build: './php'
+    networks:
+      - backend1
+    volumes:
+      - ./serveur/html:/usr/local/apache2/htdocs/
+  php2:
+    build: './php'
+    networks:
+      - backend2
+    volumes:
+      - ./serveur2/html:/usr/local/apache2/htdocs/
+  mariadb1:
+    image: mariadb
+    networks:
+      - backend1
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+      - dbdata1:/var/lib/mysql
+  mariadb2:
+    image: mariadb
+    networks:
+      - backend2
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+      - dbdata2:/var/lib/mysql
+networks:
+  backend1:
+  backend2:
+  frontend:
+volumes:
+  dbdata1:
+  dbdata2:
